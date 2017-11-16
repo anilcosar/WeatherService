@@ -1,0 +1,127 @@
+$v-focus-style: none;
+$v-textfield-shadow:none;
+$v-panel-background-color:transparent;
+$v-panel-border:none;
+
+@import "../valo/valo.scss";
+
+@mixin colored {
+  @include valo;
+
+  .v-app {
+    //background: url("http://www.publicdomainpictures.net/pictures/30000/velka/blue-blur-background.jpg") !important ;
+//    background: url("https://source.unsplash.com/1920x1080/?city") !important ;
+  }
+  .v-textfield-tfwb {
+    position: absolute;
+    background: transparent; /* Has shading image by default */
+    border-width: 0px 0px 0px 0px;
+    border-color: #F5F5F5 ;
+    font-size: 25px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+  }
+
+  .blurLayout{
+    background: url("https://source.unsplash.com/collection/893395/1920x1080") !important ;
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    z-index:0;
+  }
+
+  .searchLayout {
+    border: rgba(0,0,0,0.1) solid 0.5px;
+    border-radius: 5px 5px 3px 3px;
+    background: url("https://source.unsplash.com/collection/893395/1920x1080") center !important ;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+  }
+  .degree{
+    font-size:60px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+
+  .weatherData{
+    border-radius: 0px 0px 5px 5px;
+    background-color: rgba(0,0,0,0.2);
+
+  }
+  .days{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .daysField{
+    border-left: 2px solid rgba(0,0,0,0.1) ;
+    text-align: center;
+  }
+  .degreebyday{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+  }
+  .date{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+  }
+  .autoComplete{
+    font-size: 25px;
+    color: rgba(0,0,0,0.7);
+    padding-left: 9px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+  }
+  .v-nativebutton-borderless {
+    border: rgba(0,0,0,0.1) solid 0.5px;
+    border-radius: 20px 20px 20px 20px;
+    background: #77CA60;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+
+  }
+
+  .cityName {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  .infoDesign{
+    text-align: center;
+  }
+  .v-nativebutton-goBackButton{
+    border: none;
+    background: transparent;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+  }
+
+
+
+
+
+}
+
+@include colored;
