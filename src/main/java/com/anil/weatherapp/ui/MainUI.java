@@ -1,7 +1,7 @@
 package com.anil.weatherapp.ui;
 
+import com.anil.weatherapp.controller.WeatherController;
 import com.anil.weatherapp.model.ResponseData;
-import com.anil.weatherapp.service.OpenWeather;
 import com.anil.weatherapp.specs.StringSpecs;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.annotations.Theme;
@@ -21,6 +21,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.io.FileReader;
@@ -41,7 +42,8 @@ public class MainUI extends UI {
 
     final static Logger logger = Logger.getLogger(MainUI.class);
 
-    private OpenWeather openWeather = new OpenWeather();
+    @Autowired
+    private WeatherController weatherController;
 
     private ClassLoader classLoader = getClass().getClassLoader();
     private File citiesJson = new File(classLoader.getResource("world-cities.json").getFile());
@@ -140,7 +142,8 @@ public class MainUI extends UI {
             @Override
             public void handleAction(Object o, Object o1) {
                 if (!city.isEmpty()) {
-                    responseData = openWeather.getData(city.getValue());
+                    responseData = weatherController.getData(city.getValue());
+
                     if (responseData == null)
                         Notification.show("City is not found", Notification.Type.HUMANIZED_MESSAGE);
                     logger.info(responseData);
@@ -203,7 +206,7 @@ public class MainUI extends UI {
         HorizontalLayout horizontalLayout = new HorizontalLayout();
         horizontalLayout.setWidth("90%");
         horizontalLayout.addStyleName("weatherData");
-        fillWeatherData(horizontalLayout, openWeather.getData(city));
+        fillWeatherData(horizontalLayout, weatherController.getData(city));
         list.addComponent(horizontalLayout);
 
     }

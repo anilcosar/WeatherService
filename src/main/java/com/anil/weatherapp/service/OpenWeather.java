@@ -3,14 +3,15 @@ package com.anil.weatherapp.service;
 import com.anil.weatherapp.model.ResponseData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import retrofit2.Call;
 
 import java.io.IOException;
 
 
+@Service
 public class OpenWeather {
 
-    @Autowired
     OpenWeatherService openWeatherService;
 
 
