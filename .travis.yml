@@ -3,7 +3,6 @@ sudo: false # faster builds
 cache:
   directories:
     - '$HOME/.m2/repository'
-    - '$HOME/.sonar/cache'
 
 addons:
   sonarcloud:
@@ -18,10 +17,7 @@ install:
   - 'mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V'
 
 script:
-  - 'mvn test'
-  - 'mvn verify'
-  - 'mvn jacoco:report'
-  - 'mvn sonar:sonar'
+  - 'mvn clean verify'
 
 after_success:
   - 'bash <(curl -s https://codecov.io/bash)'
